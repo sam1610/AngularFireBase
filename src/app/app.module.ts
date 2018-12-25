@@ -11,6 +11,9 @@ import { EmployeesComponent } from './employees/employees.component';
 import { EmployeeComponent } from './employees/employee/employee.component';
 import { EmployeeListComponent } from './employees/employee-list/employee-list.component';
 import { FormsModule } from  "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+ 
+import { ToastrModule } from 'ngx-toastr';
 
 @NgModule({
   declarations: [
@@ -19,7 +22,7 @@ import { FormsModule } from  "@angular/forms";
     EmployeeComponent,
     EmployeeListComponent
   ],
-  imports: [ 
+  imports: [ BrowserAnimationsModule,ToastrModule.forRoot(),
     BrowserModule,AngularFireModule.initializeApp(environment.firebaseConfig),
     AngularFirestoreModule, FormsModule
   ],
