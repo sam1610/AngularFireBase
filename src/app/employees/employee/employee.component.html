@@ -1,7 +1,8 @@
 <h1 class="diplay-4"> EMP. Register </h1>
 <form #form="ngForm" autocomplete="off">
   <div class="form-group">
-    <input name="mobile" #fullName="ngModel"  [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full Name">
+    <input name="fullName" #fullName="ngModel"  [(ngModel)]="service.formData.fullName" class="form-control" placeholder="Full Name"  required >
+  <div *ngIf="fullName.invalid &&  fullName.touched"  class="validation-error"> this field is required</div>
   </div>
   <div class="form-group">
     <input name="position" #position="ngModel"  [(ngModel)]="service.formData.position" class="form-control" placeholder="Position">
@@ -15,6 +16,6 @@
   </div>
   </div>
  <div class="form-grouo">
-<button type="submit" class="btn btn-lg btn-block btn-info">  SUBMIT</button>  
+<button   [disabled]="form.invalid"  type="submit" class="btn btn-lg btn-block btn-info">  SUBMIT</button>  
  </div>
 </form>
