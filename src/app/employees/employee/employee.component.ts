@@ -30,9 +30,13 @@ resetForm( form?:NgForm){
 }
 
 onSubmit(form:NgForm){
-   let data= form.value;
+   let data= Object.assign({},form.value);
+   delete data.id;
+   if(form.value.id==null)
   //  console.log(data);
-  this.firestrore.collection('toto').add(data);
+    this.firestrore.collection('employees').add(data);
+    else
+    this.firestrore.doc("employees/"+form.value.id).update(data)
   this.resetForm(form);
   this.toastr.success(" Submisson with success", "EMP. Register");
    
